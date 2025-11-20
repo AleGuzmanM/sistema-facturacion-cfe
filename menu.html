@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menú Principal - CFE</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+
+<body>
+
+  <!-- ENCABEZADO -->
+  <header class="site-header d-flex justify-content-between align-items-center fixed-top">
+    <div class="d-flex align-items-center">
+      <img src="src/logo_cfe.png" alt="Logo izquierdo" class="logo me-3">
+    </div>
+
+    <h1 class="titulo-encabezado text-center flex-grow-1 m-0">CFE - SIEMPRE CONTIGO</h1>
+
+    <div class="d-flex align-items-center">
+      <p class="m-0 me-3 fs-5">Bienvenido, <strong id="nombreUsuario"></strong></p>
+      <img src="src/cfe1.jpeg" alt="Logo derecho" class="logo me-3">
+      <button id="cerrarSesion" class="btn">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="principal1">
+    <div class="contenido container text-center mt-5 pt-5">
+      <h1 class="titulo-menu mb-4">OPCIONES PARA EL USUARIO</h1>
+      <p class="subtitulo-menu mb-5">Elija lo que desea realizar</p>
+
+      <div class="row justify-content-center g-4">
+        <!-- Opción 1 -->
+        <div class="col-md-3">
+          <div class="opcion h-100" onclick="location.href='pagina.html'">
+            <i class="bi bi-clipboard-data icono-opcion"></i>
+            <h5>Control de datos y trazabilidad</h5>
+            <p>Detección de errores</p>
+          </div>
+        </div>
+
+        <!-- Opción 2 -->
+        <div class="col-md-3">
+          <div class="opcion h-100" onclick="location.href='req2.html'">
+            <i class="bi bi-calculator icono-opcion"></i>
+            <h5>Cálculo y Tarifación</h5>
+            <p>Tarifa correspondiente y tipo de servicio</p>
+          </div>
+        </div>
+
+        <!-- Opción 3 -->
+        <div class="col-md-3">
+          <div class="opcion h-100" onclick="location.href='Facturas.html'">
+            <i class="bi bi-receipt icono-opcion"></i>
+            <h5>Generación de factura</h5>
+            <p>Factura final</p>
+          </div>
+        </div>
+
+        <!-- Opción 4 -->
+        <div class="col-md-3">
+          <div class="opcion h-100" onclick="location.href='Conciliacion.html'">
+            <i class="bi bi-wallet2 icono-opcion"></i>
+            <h5>Conciliación de pago</h5>
+            <p>Historial, adeudos e información del cliente</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script para mostrar el usuario -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const datosUsuario = localStorage.getItem('usuarioActivo');
+      if (datosUsuario) {
+        const usuario = JSON.parse(datosUsuario);
+        document.getElementById('nombreUsuario').textContent = usuario.nombre;
+      } else {
+        window.location.href = "cfe.html"; // tu login
+      }
+
+      // Botón de cerrar sesión
+      document.getElementById('cerrarSesion').addEventListener('click', function() {
+        localStorage.removeItem('usuarioActivo');
+        window.location.href = "cfe.html";
+      });
+    });
+  </script>
+
+</body>
+</html>
+

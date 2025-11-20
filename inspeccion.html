@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/estilos.css" type="text/css">
+
+    <title>Inspección de lectura</title>
+  </head>
+  <body>
+    <!-- ENCABEZADO -->
+    <header class="verde-fuerte text-white py-4 d-flex align-items-center">
+      <a href="menu.html">
+       <img src="src/logo_cfe.png" alt="" class="me-3" style="width: 220px; height: 105px;">
+      </a>
+       <div class="text-center flex-grow-1">
+       </div>
+       <!-- Botón cerrar sesión -->
+       <button class="btn btn-danger mt-5" style="font-weight: bold;">Cerrar sesión</button>
+    </header>
+
+     <!-- TÍTULO -->
+    <h1 class="text-center mt-4">Datos de lectura</h1>
+    
+
+    <!-- TABLA -->
+     <!-- TABLA CENTRADA -->
+    
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col-md-9 mx-auto">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>ID Lectura</th>
+            <th>ID medidor</th>
+            <th>Fecha</th>
+            <th>Lectura actual</th>
+            <th>Lectura anterior</th>
+            <th>Tipo de servicio</th>
+            <th>Consumo</th>
+            <th>Estado</th>
+            <th>Alertas</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>10233</td>
+            <td>9145786102</td>
+            <td>2/11/2025</td>
+            <td>ERR-245</td>
+            <td>12500</td>
+            <td>Doméstico</td>
+            <td>--</td>
+            <td>INVÁLIDA</td>
+            <td>Error de sensor: dato ilegible</td>
+            <td>INSPECCIÓN</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Cuadro-leyenda -->
+<div class="container-fluid mt-5">
+  <div class="card" style="background-color: #207147; color: white; width: 98%;">
+    <div class="card-body py-2">
+      <h5 class="m-0">Modificación de lectura</h5>
+    </div>
+  </div>
+</div>
+
+    <!-- FORMULARIO CENTRADO -->
+<div class="d-flex justify-content-center mt-4">
+  <div style="max-width: 800px; width: 100%;">
+    <form class="p-4 border rounded">
+
+      <div class="row">
+        
+        <!-- COLUMNA 1 -->
+        <div class="col-md-6">
+          
+          <!-- ID Lectura -->
+          <div class="mb-3">
+            <label class="form-label">ID de Lectura</label>
+            <input type="text" class="form-control" value="10233" readonly>
+          </div>
+
+          <!-- Fecha Lectura -->
+          <div class="mb-3">
+            <label class="form-label">Fecha de Lectura</label>
+            <input type="date" class="form-control" value="2025-10-15" readonly>
+          </div>
+
+          <!-- Lectura anterior -->
+          <div class="mb-3">
+            <label class="form-label">Lectura anterior</label>
+            <input type="text" class="form-control" value="12500" readonly>
+          </div>
+
+          <!-- Motivo -->
+          <div class="mb-3">
+            <label class="form-label">Motivo de corrección</label>
+            <input type="text" class="form-control" placeholder="Escribe el motivo">
+          </div>
+
+        </div>
+
+        <!-- COLUMNA 2 -->
+        <div class="col-md-6">
+
+          <!-- ID Medidor -->
+          <div class="mb-3">
+            <label class="form-label">ID de Medidor</label>
+            <input type="text" class="form-control" value="9145786102" readonly>
+          </div>
+
+          <!-- Lectura actual -->
+          <div class="mb-3">
+            <label class="form-label">Lectura actual</label>
+            <input type="text" class="form-control" value="ERR-245" readonly>
+          </div>
+
+          <!-- Nueva Lectura -->
+          <div class="mb-3">
+            <label class="form-label">Nueva lectura</label>
+            <input type="text" class="form-control" placeholder="Escribe la nueva lectura">
+          </div>
+
+          <!-- Usuario -->
+          <div class="mb-3">
+            <label class="form-label">Usuario que realiza la corrección</label>
+            <input type="text" class="form-control" value="Admin" readonly>
+          </div>
+
+           <!-- FECHA Y HORA SISTEMA (Abajo ocupando todo) -->
+          <div class="mb-3">
+             <label class="form-label">Fecha y Hora de modificación</label>
+             <input type="datetime-local" class="form-control" value="2025-11-15T14:30" readonly>
+          </div>
+
+        </div>
+      </div>
+
+    
+
+      <!-- BOTONES -->
+      <div class="text-center mt-4">
+        <button type="button" class="btn btn-secondary">Cancelar</button>
+        <button type="submit" class="btn btn-success me-2">Guardar</button>
+        
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<!-- Cuadro-leyenda -->
+<div class="container-fluid mt-5">
+  <div class="card" style="background-color: #207147; color: white; width: 98%;">
+    <div class="card-body py-2">
+      <h5 class="m-0">Historial de modificaciones</h5>
+    </div>
+  </div>
+</div>
+
+<!-- TABLA -->
+     <!-- TABLA CENTRADA -->
+    
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col-md-9 mx-auto">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>ID Lectura</th>
+            <th>ID medidor</th>
+            <th>Fecha</th>
+            <th>Lectura actual</th>
+            <th>Lectura nueva</th>
+            <th>Motivo</th>
+            <th>Usuario</th>
+            <th>Fecha de corrección</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>10233</td>
+            <td>9145786102</td>
+            <td>2/11/2025</td>
+            <td>ERR-245</td>
+            <td>12610</td>
+            <td>Error de sensor</td>
+            <td>Admin</td>
+            <td>15/11/2025 14:30</td>
+            <td>VALIDADA</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="js./bootstrap.min.js"></script>
+  </body>
+</html>

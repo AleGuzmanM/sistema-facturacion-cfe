@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/estilos.css" type="text/css">
+
+    <title>Control de datos y trazabilidad de lecturas</title>
+  </head>
+  <body>
+    <!-- ENCABEZADO -->
+    <header class="verde-fuerte text-white py-4 d-flex align-items-center">
+      <a href="menu.html">
+       <img src="src/logo_cfe.png" alt="" class="me-3" style="width: 220px; height: 105px;">
+      </a>
+       <div class="text-center flex-grow-1">
+       </div>
+       <a href="menu.html" class="btn btn-outline-secondary btn-sm mb-3">
+            Inicio
+        </a>
+       <!-- Botón cerrar sesión -->
+         <button class="btn btn-danger mt-5" style="font-weight: bold;">Cerrar sesión</button>
+    </header>
+
+     <!-- TÍTULO -->
+    <h1 class="ml-5 mt-4">Control de datos y trazabilidad de lecturas</h1>
+
+    <!-- BUSCADOR -->
+    <div class="ml-5 mt-5" style="max-width: 800px;">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Buscar lectura" aria-label="Buscar">
+        <div class="input-group-append">
+          <button class="btn btn-success" type="button">Buscar</button>
+        </div>
+      </div>
+    </div>
+
+
+<!-- TABLA -->
+
+<!-- CONTENEDOR PARA TABLA Y FILTRO -->
+<div class="container-fluid mt-4">
+
+  <div class="row">
+
+    <!-- COLUMNA IZQUIERDA -->
+    <div class="col-md-8 ml-5">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>ID Lectura</th>
+            <th>ID medidor</th>
+            <th>Fecha</th>
+            <th>Lectura actual</th>
+            <th>Lectura anterior</th>
+            <th>Tipo de servicio</th>
+            <th>Consumo</th>
+            <th>Estado</th>
+            <th>Alertas</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>10231</td>
+            <td>5500123498</td>
+            <td>2/10/2025</td>
+            <td>12500</td>
+            <td>12320</td>
+            <td>Doméstico</td>
+            <td>180</td>
+            <td>VALIDADA</td>
+            <td>Ninguna</td>
+            <td><a href="ver1.html" class="text-primary">VER</a></td>
+          </tr>
+          <tr>
+            <td>10232</td>
+            <td>4879358467</td>
+            <td>2/10/2025</td>
+            <td>34920</td>
+            <td>34800</td>
+            <td>Doméstico</td>
+            <td>120</td>
+            <td>VALIDADA</td>
+            <td>Ninguna</td>
+            <td><a href="ver2.html" class="text-primary">VER</a></td>
+
+          </tr>
+          <tr>
+            <td>10233</td>
+            <td>9145786102</td>
+            <td>2/10/2025</td>
+            <td>ERR-245</td>
+            <td>12500</td>
+            <td>Doméstico</td>
+            <td>--</td>
+            <td>INVÁLIDA</td>
+            <td>Error de sensor: dato ilegible</td>
+            <td> <a href="inspeccion.html" class="text-primary">INSPECCIÓN</a> </td>
+
+          </tr>
+
+           <tr>
+            <td>10234</td>
+            <td>7791123447</td>
+            <td>10/10/2025</td>
+            <td>34800</td>
+            <td>33000</td>
+            <td>Doméstico</td>
+            <td>1800</td>
+            <td>FUERA DE RANGO</td>
+            <td>Rango alto</td>
+            <td><a href="inspeccion2.html" class="text-primary">INSPECCIÓN</a></td>
+
+          </tr>
+          
+         <tr>
+          <td>10235</td>
+          <td>6633984521</td>
+          <td>12/10/2025</td>
+          <td>50210</td>
+          <td>50000</td>
+          <td>Negocio</td>
+          <td>210</td>
+          <td>VALIDADA</td>
+          <td>Ninguna</td>
+          <td><a href="ver3.html" class="text-primary">VER</a></td>
+        </tr>
+
+  
+        <tr>
+         <td>10236</td>
+         <td>8892346710</td>
+         <td>15/10/2025</td>
+         <td>120500</td>
+         <td>119000</td>
+         <td>Industria</td>
+         <td>1500</td>
+         <td>VALIDADA</td>
+         <td>Ninguna</td>
+         <td><a href="ver4.html" class="text-primary">VER</a></td>
+       </tr>
+      </tbody>
+    </table>
+  </div>
+
+    <!-- FILTRO -->
+    <!-- COLUMNA DERECHA-->
+    <div class="col-md-3 mt-n5">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Filtro de búsqueda</h5>
+
+          <div class="form-group">
+            <label>ID Lectura</label>
+            <input type="text" class="form-control" placeholder="ID de lectura">
+          </div>
+
+          <div class="form-group">
+            <label>ID Medidor</label>
+            <input type="text" class="form-control" placeholder="ID de lectura">
+          </div>
+      
+
+          <div class="form-group mt-2">
+            <label>Fecha de lectura</label>
+            <input type="date" class="form-control">
+          </div>
+
+          <div class="form-group mt-2">
+            <label>Lectura actual</label>
+            <input type="text" class="form-control" placeholder="Lectura actual del usuario">
+          </div>
+
+          <div class="form-group mt-2">
+            <label>Lectura anterior</label>
+            <input type="text" class="form-control" placeholder="Lectura anterior del usuario">
+          </div>
+
+          <div class="form-group mt-2">
+            <label>Tipo de servicio</label>
+            <select class="form-control">
+              <option selected>Selecciona el tipo de consumo</option>
+              <option>Hogar</option>
+              <option>Negocio</option>
+              <option>Inustria</option>
+              <option>Agrícola y servicios</option>
+            </select>
+          </div>
+
+          <div class="form-group mt-2">
+            <label>Estado</label>
+            <select class="form-control">
+              <option selected>Selecciona el estado de la lectura</option>
+              <option>Validada</option>
+              <option>Fuera de rango</option>
+              <option>Inválida</option>
+            </select>
+          </div>
+
+          <div class="form-group mt-2">
+            <label>Acciones</label>
+            <select class="form-control">
+              <option selected>Selecciona la acción que deseas aplicar</option>
+              <option>Historial</option>
+              <option>Inspección</option>
+
+            </select>
+          </div>
+
+          <button class="btn btn-secondary mt-3">Limpiar filtro</button>
+          <button class="btn btn-success mt-3 ml-5">Aplicar filtro</button>
+          
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="js./bootstrap.min.js"></script>
+  </body>
+</html>

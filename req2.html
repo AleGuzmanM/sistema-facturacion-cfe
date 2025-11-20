@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/estilos.css" type="text/css">
+
+    <title>Cálculo y tarifación</title>
+  </head>
+  <body>
+    <!-- ENCABEZADO -->
+    <header class="verde-fuerte text-white py-4 d-flex align-items-center">
+      <a href="menu.html">
+       <img src="src/logo_cfe.png" alt="" class="me-3" style="width: 220px; height: 105px;">
+      </a>
+       <div class="text-center flex-grow-1">
+       </div>
+       <!-- Botón cerrar sesión -->
+         <button class="btn btn-danger mt-5" style="font-weight: bold;">Cerrar sesión</button>
+    </header>
+
+     <!-- TÍTULO -->
+<h1 class="mt-5 text-center">Cálculo y tarifación</h1>
+
+
+<!-- CONTENEDOR PRINCIPAL DE DOS COLUMNAS -->
+<div class="d-flex justify-content-start mt-5" style="gap: 40px; padding-left: 40px;">
+
+  <!-- COLUMNA IZQUIERDA: DETALLES DE LECTURA -->
+  <div class="card p-3 mb-2" style="width: 420px; margin-left: 60px;">
+    <h3 class="mb-3 text-center">Detalles de lectura</h3>
+
+    <form>
+      <div class="mb-2">
+        <label class="form-label">ID Lectura:</label>
+        <input type="text" class="form-control" value="10231" readonly>
+      </div>
+
+      <div class="mb-2">
+        <label class="form-label">ID Medidor:</label>
+        <input type="text" class="form-control" value="5500123498" readonly>
+      </div>
+
+      <div class="mb-2">
+        <label class="form-label">Fecha de lectura:</label>
+        <input type="text" class="form-control" value="2/10/2025" readonly>
+      </div>
+
+      <div class="mb-2">
+        <label class="form-label">Lectura anterior:</label>
+        <input type="number" class="form-control" value="12320" readonly>
+      </div>
+
+      <div class="mb-2">
+        <label class="form-label">Lectura actual:</label>
+        <input type="number" class="form-control" value="12500" readonly>
+      </div>
+
+      <div class="mb-2">
+        <label class="form-label">Consumo:</label>
+        <input type="number" class="form-control" value="180" readonly>
+      </div>
+
+      <div class="mb-2">
+        <label class="form-label">Tipo de servicio:</label>
+        <input type="text" class="form-control" value="Doméstico" readonly>
+      </div>
+
+      <div class="mb-2">
+        <label class="form-label">Estructura de tarifa aplicable:</label>
+        <input type="number" class="form-control" value="1" readonly>
+      </div>
+    </form>
+  </div>
+
+  <!-- COLUMNA DERECHA: TABLA DE TARIFA APLICADA -->
+  <div>
+    
+
+    <div class="contenedor-tabla">
+     <h4 class="mt-1">Estructura tarifaria aplicada</h4>
+      <table class="tabla-tarifa">
+        <thead>
+          <tr>
+            <th>Rango</th>
+            <th>Tipo de consumo</th>
+            <th>Precio kWh</th>
+            <th>Periodo</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>0 – 250 kWh</td>
+            <td>Básico</td>
+            <td>$1.099</td>
+            <td>Octubre</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- TABLA DE FACTURACIÓN Y FOLIO DE FACTURA (DEBAJO) -->
+    
+
+    <div class="contenedor-tabla">
+     <h4 class="mt-5">Totales de facturación</h4>
+      <table class="tabla-tarifa">
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th>Cálculo</th>
+            <th>Monto</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Consumo neto</td>
+            <td>180</td>
+            <td>$197.82</td>
+          </tr>
+
+          <tr>
+            <td>IVA (16%)</td>
+            <td>---</td>
+            <td>$31.65</td>
+          </tr>
+
+          <tr>
+            <td>Total a pagar</td>
+            <td>---</td>
+            <td>$229.47</td>
+          </tr>
+
+          <!-- FILA DEL FOLIO ÚNICO -->
+          <tr>
+            <td colspan="3">
+             <div class="d-flex align-items-center gap-2">
+              <label class="form-label mb-1">Folio único de factura:</label>
+              <input type="text" class="form-control" value="CFE-05654646857" readonly style="max-width: 250px;">
+             </div>
+            <div class="d-flex justify-content-center mt-2 ">
+              <button class="btn btn-success w-60 "><a href="facturas.html" class="btn btn-success w-60 text-white text-decoration-none">Generar factura</a></button>
+            </div>
+          </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+  </div> <!-- FIN DE COLUMNA DERECHA -->
+
+</div> <!-- FIN DEL CONTENEDOR PRINCIPAL -->
+
+
+
+     
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="js./bootstrap.min.js"></script>
+  </body>
+</html>

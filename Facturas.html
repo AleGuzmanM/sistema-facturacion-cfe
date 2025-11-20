@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>1. Interfaz de Generación</title>
+    <style>
+        .card-header-custom { background-color: #0c8f66; color: white; font-size: 1.2rem; font-weight: 500; }
+        .bg-warning { background-color: #ffe0b2 !important; }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5 mb-5">
+        
+        <a href="menu.html" class="btn btn-outline-secondary btn-sm mb-3">
+            ← Regresar al Menú Principal
+        </a>
+        
+        <h1 class="mb-4 text-center text-dark">Generación de Facturas</h1>
+        <p class="text-center text-muted">datos de consumo y tarifa para generar la factura.</p>
+        
+        <div class="card shadow-lg">
+            <div class="card-header card-header-custom">Datos de Entrada Obligatorios</div>
+            
+            <div class="card-body">
+                <form id="formGeneracionFactura">
+                    
+                    <h5 class="mb-3 text-secondary">Datos del Cliente y Tarifa</h5>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="idCliente">Número de Cliente:</label>
+                            <input type="text" class="form-control" id="idCliente" value="" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="nombreCliente">Nombre del Cliente:</label>
+                            <input type="text" class="form-control" id="nombreCliente" value="" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="tarifa">Tarifa Aplicada:</label>
+                            <input type="text" class="form-control" id="tarifa" value="" required>
+                        </div>
+                    </div>
+                    
+                    <hr>
+
+                    <h5 class="mb-3 text-secondary">Datos de Consumo y Costos</h5>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="lecturaAnterior">Lectura Anterior (kWh):</label>
+                            <input type="number" class="form-control" id="lecturaAnterior" value="" required oninput="calcularMonto()">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="lecturaActual">Lectura Actual (kWh):</label>
+                            <input type="number" class="form-control" id="lecturaActual" value="" required oninput="calcularMonto()">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="costoUnitario">Costo Unitario por kWh:</label>
+                            <input type="number" class="form-control" id="costoUnitario" value="1.50" step="0.01" required oninput="calcularMonto()">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="impuestos">Impuestos (Tasa Decimal 0.XX):</label>
+                            <input type="number" class="form-control" id="impuestos" value="0.16" step="0.01" required oninput="calcularMonto()">
+                        </div>
+                    </div>
+
+                    <hr>
+                    
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="consumoNeto">Consumo Neto Calculado (kWh):</label>
+                            <input type="text" class="form-control" id="consumoNeto" value="" readonly>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="montoSubtotal">Monto Subtotal:</label>
+                            <input type="text" class="form-control" id="montoSubtotal" value="" readonly>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="montoTotal">Monto Total a Facturar:</label>
+                            <input type="text" class="form-control font-weight-bold bg-warning" id="montoTotal" value="" readonly> 
+                        </div>
+                    </div>
+
+                    <div class="mt-4 text-center">
+                        <button type="submit" class="btn btn-success btn-lg">
+                            Generar y Almacenar Factura Digital
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+        // Función para simular el CÁLCULO Y TARIFACIÓN (Proceso 2.0)
+        function calcularMonto() {
+            // ... (Función de cálculo) ...
+            const ant = parseFloat(document.getElementById('lecturaAnterior').value) || 0;
+            const act = parseFloat(document.getElementById('lecturaActual').value) || 0;
+            const costoUnitario = parseFloat(document.getElementById('costoUnitario').value) || 0;
+            const tasaImpuestos = parseFloat(document.getElementById('impuestos').value) || 0;
+            const costoBaseFijo = 50.00; 
+            
+            if (act <= ant || act === 0) {
+                document.getElementById('consumoNeto').value = '';
+                document.getElementById('montoSubtotal').value = '';
+                document.getElementById('montoTotal').value = '';
+                return; 
+            }
+
+            const consumoNeto = Math.max(0, act - ant);
+            document.getElementById('consumoNeto').value = consumoNeto.toFixed(0);
+
+            const montoConsumo = consumoNeto * costoUnitario;
+            const subtotal = montoConsumo + costoBaseFijo;
+            document.getElementById('montoSubtotal').value = subtotal.toFixed(2);
+
+            const montoTotal = subtotal * (1 + tasaImpuestos);
+            document.getElementById('montoTotal').value = montoTotal.toFixed(2);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('consumoNeto').value = '';
+            document.getElementById('montoSubtotal').value = '';
+            document.getElementById('montoTotal').value = '';
+        });
+
+
+        // FUNCIÓN PRINCIPAL DE ENLACE (Proceso 3.0: Generación)
+        document.getElementById('formGeneracionFactura').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            const datosFactura = {
+                idCliente: document.getElementById('idCliente').value,
+                nombreCliente: document.getElementById('nombreCliente').value,
+                tarifa: document.getElementById('tarifa').value,
+                lecturaAnterior: document.getElementById('lecturaAnterior').value,
+                lecturaActual: document.getElementById('lecturaActual').value,
+                consumoNeto: document.getElementById('consumoNeto').value,
+                costoUnitario: document.getElementById('costoUnitario').value,
+                impuestos: document.getElementById('impuestos').value,
+                costoBase: 50.00.toFixed(2), 
+                montoSubtotal: document.getElementById('montoSubtotal').value,
+                montoTotal: document.getElementById('montoTotal').value, 
+                folioFiscal: '987B654A3210FDE-' + Math.floor(Math.random() * 9999),
+            };
+
+            if (!datosFactura.lecturaActual || !datosFactura.lecturaAnterior || !datosFactura.idCliente || !datosFactura.montoTotal || datosFactura.montoTotal === '') {
+                 alert('Por favor, complete los datos de Cliente y Consumo (Lecturas) para calcular el monto total.');
+                 return;
+            }
+
+            localStorage.setItem('datosFacturaGenerada', JSON.stringify(datosFactura));
+
+            // Redirección a la vista de factura
+            window.location.href = 'vista_factura.html';
+        });
+    </script>
+</body>
+</html>
